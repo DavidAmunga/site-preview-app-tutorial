@@ -24,6 +24,23 @@ const Home = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const uploadWidget = () => {
+    window.cloudinary.openUploadWidget(
+      {
+        cloud_name: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
+        upload_preset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
+        tags: ['site-preview'],
+        sources: ['local', 'url'],
+      },
+      function (error, result) {
+        if (error) {
+          return;
+        }
+        console.log('Upload Result is', result);
+        setForm({ ...form, image: result[0].url });
+      },
+    );
+  };
   return (
     <div className="mx-auto max-w-3-xl px-4 mt-12">
       <div className="flex justify-between">
@@ -83,6 +100,7 @@ const Home = () => {
                   </label>
                   <button
                     type="button"
+                    onClick={() => uploadWidget()}
                     className="w-auto px-8 py-2 flex items-center  divide-x divide-gray-800 border border-gray-300 text-sm rounded-md text-gray-700 bg-white hover:bg-gray-100"
                   >
                     <span className="pr-2">Upload File</span>
