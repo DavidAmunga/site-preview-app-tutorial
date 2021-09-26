@@ -42,7 +42,7 @@ const Home = () => {
     );
   };
   return (
-    <div className="mx-auto max-w-3-xl px-4 mt-12">
+    <div className="mx-auto max-w-7xl px-4 mt-12">
       <div className="flex justify-between">
         <div className="bg-yellow-100 text-yellow-800 flex items-center justify-center px-4 rounded-sm">
           <h2 className="text-xl font-bold">Welcome {user.name}!</h2>
