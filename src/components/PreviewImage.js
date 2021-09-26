@@ -2,7 +2,7 @@ import React from 'react';
 
 const PreviewImage = ({ form }) => {
   return (
-    <div class="preview flex flex-col">
+    <div className="preview flex flex-col">
       <img
         className="w-full object-cover h-32"
         src={form.image}
@@ -12,7 +12,7 @@ const PreviewImage = ({ form }) => {
         <h3 className="text-gray-800 font-bold">
           {form.title.length === 0 ? `Enter A Title` : form.title}
         </h3>
-        <p class="">
+        <p className="">
           {form.description.length === 0
             ? `Enter A Description`
             : `${form.description}`}
